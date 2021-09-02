@@ -13,7 +13,10 @@
 
 include_once 'HardDisk.php';
 include_once 'Book.php';
+include_once 'User.php';
+include_once 'CreditCard.php';
 
+// prova inserimento di un HDD
 $ssd = new HardDisk('SSD','Elettronica','500gb',10);
 $ssd->setPrice(100);
 try{
@@ -24,7 +27,7 @@ try{
 }
 var_dump($ssd);
 
-
+// prova inserimento di un libro
 $it = new Book('IT','Libro','Rigida',350);
 $it->setPrice(10);
 try{
@@ -34,3 +37,28 @@ try{
 }
 var_dump('Giorni spedizione: ' . $it->getShipment());
 var_dump($it);
+
+
+// prova inserimento utente
+$teo = new User('Matteo','Rizza');
+try{
+  $teo->setLvl('prime');
+} catch(Exception $e){
+  var_dump($e->getMessage());
+}
+var_dump($teo);
+
+
+//prova inserimento carta di credito
+try{
+  $cc = new CreditCard('1234123412341234',123,'09','2022');
+  var_dump($cc->getCreditCard());
+  
+  // assegnare carta a utente
+  $teo->setCreditCard($cc->getCreditCard());
+  var_dump($teo);
+
+} catch(Exception $e){
+  var_dump($e->getMessage());
+}
+
