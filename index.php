@@ -11,7 +11,14 @@
  * BONUS: Gestite eventuali eccezioni che si possono verificare (es: carta di credito scaduta).
  */
 
- include_once 'Item.php';
+ include_once 'HardDisk.php';
+ include_once 'Book.php';
 
- $xBox = new Item('xBox',500);
- var_dump($xBox);
+ $ssd = new HardDisk('SSD','Elettronica','500gb',10);
+ $ssd->setPrice(100);
+ var_dump($ssd);
+
+
+ $it = new Book('IT','Libro','Rigida',350);
+ $it->setPrice(10);
+ var_dump($it);
