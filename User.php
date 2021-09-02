@@ -1,10 +1,11 @@
 <?php
 
 class User{
-  private $name;
-  private $surname;
+  public $name;
+  public $surname;
   private $creditCard;
   private $userLvl = 'base';
+  public $userCart;
 
   public function __construct($_name,$_surname){
     $this->name = $_name;

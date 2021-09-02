@@ -6,9 +6,9 @@ class Item{
 
   use Shipment;
 
-  protected $name;
+  public $name;
   protected $price;
-  protected $genre;
+  public $genre;
   protected $quantity;
 
   public function __construct($_name, $_genre){
@@ -20,7 +20,7 @@ class Item{
     $this->price = $_price;
   }
 
-  public function getPrice($_price){
+  public function getPrice(){
     return $this->price;
   }
 
