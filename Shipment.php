@@ -1,17 +1,22 @@
 <?php
 
 trait Shipment{
-  public $days;
-  public $taxes;
+  private $days;
 
-  public function setShipment($fastShip){
-    if($fastShip){
-      $days = 1;
-      $taxes = 10;
-    } 
-    else{
-      $days = 10;
-      $taxes = 5;
+  public function setFastShipment($fastShip){
+    if($fastShip === true || $fastShip === false){
+      if($fastShip){
+        $this->days = 1;
+      } 
+      else{
+        $this->days = 10;
+      }
+    } else {
+      throw new Exception('Errore inserimento spedizione veloce!');
     }
+  }
+
+  public function getShipment(){
+    return $this->days;
   }
 }
